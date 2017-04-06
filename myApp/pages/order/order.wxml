@@ -1,0 +1,23 @@
+<view>test页</view>
+
+  <view>
+    <navigator url="../logs/logs">跳转到新页面</navigator>
+  </view>
+
+
+
+<!--表单-->
+
+<form bindsubmit="subFn" bindreset="restFn">
+    <input type="text" name="txtName" />
+<checkbox-group>
+    <view wx:for="{{country}}">
+        <checkbox value="{{item.name}}" checked="{{item.checked}}">{{item.value}}</checkbox>
+    </view>
+</checkbox-group>
+
+    <button size="mini"  hover-class="other-button-hover" form-type="submit">click</button>
+
+    <button size="mini"  form-type="reset"> reset </button>
+</form>
+

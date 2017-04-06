@@ -1,0 +1,97 @@
+
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">注册</view>
+        <!--<view class="page__desc">表单输入</view>-->
+    </view>
+
+
+
+    <view class="page__bd">
+    <!--<view class="weui-cells__title">表单</view>-->
+    <form bindsubmit="signup">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">工号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="number" name="userId" placeholder="请输入工号" bindblur="userIdCheck"/>
+                </view>
+            </view>
+
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">姓名</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input  class="weui-input" type="text"  name="userName" placeholder="请输入姓名" bindblur="userNameChe"/>
+                </view>
+            </view>
+
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">部门</view>
+                </view>
+                <view class="weui-cell__bd">
+                  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                       <view class="weui-select"> {{array[index]}}</view>
+                  </picker>
+                </view>
+            </view>
+
+            <block wx:if ="{{userPassword == userPassword2}}">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">密码</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" type="password" name="userPassword" placeholder="请输入密码" value="{{userPassword}}" />
+                    </view>
+                </view>
+
+              <view class="weui-cell weui-cell_input" >
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">确认密码</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input"  type="password" name="userPassword2" placeholder="请再次输入密码" value="{{userPassword2}}" />
+                  </view>
+              </view>
+            </block>
+
+            <block wx:else >
+              <view class="weui-cell weui-cell_input weui-cell_warn">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">密码</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" type="password" name="userPassword" placeholder="请输入密码" value="{{userPassword}}" />
+                  </view>
+
+                  <view class="weui-cell__ft">
+                      <icon type="warn" size="23" color="#E64340"></icon>
+                  </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input weui-cell_warn" >
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">确认密码</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input"  type="password" name="userPassword2" placeholder="请再次输入密码" value="{{userPassword2}}" />
+                  </view>
+
+                  <view class="weui-cell__ft">
+                      <icon type="warn" size="23" color="#E64340"></icon>
+                  </view>
+              </view>
+            </block>
+        </view>
+
+        <view class="weui-btn-area">
+            <button type="primary" form-type="submit">注 册</button>
+        </view>
+      </form>
+    </view>
+</view>

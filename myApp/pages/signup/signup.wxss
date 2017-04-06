@@ -1,0 +1,91 @@
+/**index.wxss**/
+
+.container {
+height:100%;
+display:flex;
+/*flex-direction:column;*/
+align-items:center;
+justify-content:space-between;
+padding:150rpx 0;
+box-sizing:border-box;
+
+}
+
+
+.itemView{
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-left: 5%;
+  margin-right: 10%;
+}
+
+
+
+.itemView text{
+  font-size: 1.2rem;
+  width: 50%;
+  flex-grow: 1;
+  text-align: right;
+}
+
+.itemView input{
+  /*font-size: 1.4rem;*/
+  width: 50%;
+  color: #ccc;
+  flex-grow: 3;
+  border: 1px solid #0099CC;
+  display: inline-block;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 0.15rem #aaa;
+  padding: 0.2rem 0.3rem;
+
+  margin-left: 0.5rem;
+}
+.itemView picker{
+  /*font-size: 1.2rem;*/
+  width: 50%;
+  color: #ccc;
+  flex-grow: 3;
+  border: 1px solid #0099CC;
+  display: inline-block;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 0.15rem #aaa;
+  padding: 0.3rem 0.3rem;
+
+  margin-left: 0.5rem;
+}
+
+.itemView button{
+  /*padding: 100%;*/
+  width: 80%;
+  margin-left: 2rem;
+  margin-top: 1rem;
+}
+
+.itemView navigator{
+  color: red;
+}
+
+/*.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  font-size: 40px
+}
+
+.usermotto {
+  margin-top: 200px;
+}*/

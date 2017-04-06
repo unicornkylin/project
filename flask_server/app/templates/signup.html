@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet"
+          href="../static/css/login.css">
+    <style type="text/css">
+    select#department
+            {
+{#               width                    : 185pt;#}
+{#               height                   : 40pt;#}
+{#               line-height              : 40pt;#}
+{#               padding-right            : 20pt;#}
+{#               text-indent              : 4pt;#}
+{#               text-align               : left;#}
+{#               vertical-align           : middle;#}
+{#               box-shadow               : inset 0 0 3px #606060;#}
+{#               border                   : 1px solid #acacac;#}
+               -moz-border-radius       : 20px;
+               -webkit-border-radius    : 20px;
+               border-radius            : 20px;
+               -webkit-appearance       : none;
+               -moz-appearance          : none;
+{#               appearance               : none;#}
+{#               font-family              : Arial,  Calibri, Tahoma, Verdana;#}
+{#               font-size                : 18pt;#}
+{#               font-weight              : 500;#}
+{#               color                    : #000099;#}
+{#               cursor                   : pointer;#}
+{#               outline                  : none;#}
+    }
+</style>
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+{#    <div class="container">#}
+{#        {{ wtf.quick_form(form) }}#}
+{#    </div>#}
+
+
+    <div class="container">
+
+        {% for message in get_flashed_messages() %}
+            <div class="alert-info", style="color: red"> {{ message }}</div>
+        {% endfor %}
+
+{#        {% if form.errors.userid %}#}
+{#            {% for error in form.errors.userid %}#}
+{#                <p class="help-block">{{ error }}</p>#}
+{#            {% endfor %}#}
+{#        {% endif %}#}
+
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                {% from "./includes/_formhelpers.html" import render_field %}
+                <form class="form-horizontal" method="post" role="form">
+
+                    {{ form.hidden_tag() }}
+
+                    <span class="heading">用户注册</span>
+
+                    {# 必须加上 has-error ，在进行表单验证出错是，才会调用bootstrap的字体为红色样式，#}
+                    <div class="form-group has-error has-feedback">  {# login.css中的 .form-horizontal .form-group样式 #}
+
+                        {{ render_field(form.userid, class="form-control",placeholder="工号", required=True)}}
+{#                        {{ form.userid(class="form-control",placeholder="工号", required=True) }}#}
+                        <i class="glyphicon glyphicon-eye-open"></i> {# login.css中的 .form-horizontal .form-group i 样式 #}
+                    </div>
+
+                    <div class="form-group has-error">  {# login.css中的 .form-horizontal .form-group样式 #}
+                        {{ render_field(form.username, class="form-control",placeholder="姓名", required=True) }}
+{#                        {{ form.username(class="form-control",placeholder="姓名", required=True) }}#}
+                        <i class="glyphicon glyphicon-user"></i> {# login.css中的 .form-horizontal .form-group i 样式 #}
+                    </div>
+
+                    <div class="form-group has-error">
+                        {{ render_field(form.department, class="form-control", placeholder="部门", required=True) }}
+                        <i class="glyphicon glyphicon-modal-window"></i>
+                    </div>
+
+                    <div class="form-group has-error">
+                        {{ render_field(form.password, class="form-control",placeholder="密码", required=True) }}
+{#                        {{ form.password(class="form-control",placeholder="密码", required=True) }}#}
+                        <i class="glyphicon glyphicon-lock"></i> {# login.css中的 .form-horizontal .form-group i 样式 #}
+                        <a href="#" class="fa fa-question-circle"></a>
+                    </div>
+
+                    <div class="form-group has-error">
+                        {{ render_field(form.password2, class="form-control",placeholder="确认密码") }}
+{#                        {{ form.password2(class="form-control",placeholder="密码", required=True) }}#}
+                        <i class="glyphicon glyphicon-lock"></i> {# login.css中的 .form-horizontal .form-group i 样式 #}
+                        <a href="#" class="fa fa-question-circle"></a>
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.submit(class="btn btn-default") }}
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

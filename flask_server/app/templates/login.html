@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet"
+          href="../static/css/login.css">
+{% endblock %}
+
+
+{% block content %}
+
+{#    <div class="container">#}
+{##}
+{#        {{ wtf.quick_form(form) }}#}
+{##}
+{#    </div>#}
+
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+            <div class="alert-info", style="color: red"> {{ message }}</div>
+        {% endfor %}
+
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                {% from "./includes/_formhelpers.html" import render_field %}
+                <form class="form-horizontal" method="post" role="form">
+                    <span class="heading">用户登录</span>
+
+                    {{ form.hidden_tag() }}
+
+                    <div class="form-group has-error">  {# login.css中的 .form-horizontal .form-group样式 #}
+
+                        {{ render_field(form.userid, class="form-control",placeholder="工号", required=True)}}
+{#                        {{ form.userid(class="form-control",placeholder="工号") }}#}
+                        <i class="glyphicon glyphicon-eye-open"></i> {# login.css中的 .form-horizontal .form-group i 样式 #}
+                    </div>
+                    <div class="form-group help">
+                        {{ render_field(form.password, class="form-control",placeholder="密码", required=True) }}
+{#                        {{ form.password(class="form-control",placeholder="密码") }}#}
+                        <i class="glyphicon glyphicon-lock"></i> {# login.css中的 .form-horizontal .form-group i 样式 #}
+                        <a href="#" class="fa fa-question-circle"></a>
+                    </div>
+
+                    <div class="form-group">
+                        {% for message in get_flashed_messages() %}
+                            <div class="alert-info", style="color: red"> {{ message }}</div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+{#                        <div class="main-checkbox">#}
+{#                            <input type="checkbox" value="None" id="checkbox1" name="check"/>#}
+{#                            <label for="checkbox1"></label>#}
+{#                        </div>#}
+{#                        <span class="text">Rmember Me</span>#}
+                         {{  render_field(form.remember_me,class="main-checkbox" )}}
+                        <span class="text">{{ form.remember_me.label }}</span>
+
+                        {{ form.submit(class="btn btn-default") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

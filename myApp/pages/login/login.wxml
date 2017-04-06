@@ -1,0 +1,42 @@
+
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">登录</view>
+        <!--<view class="page__desc">表单输入</view>-->
+    </view>
+
+
+    <view class="page__bd">
+    <!--<view class="weui-cells__title">表单</view>-->
+    <form bindsubmit="login">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">工号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="number" name="userId" placeholder="请输入工号"/>
+                </view>
+            </view>
+
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">密码</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" type="password" name="userPassword" placeholder="请输入密码" value="{{userPassword}}" />
+                    </view>
+                </view>
+
+        </view>
+
+        <view class="weui-btn-area">
+            <button type="primary" form-type="submit">登 录</button>
+        </view>
+      </form>
+
+      <view class="itemView" >
+        <navigator url="../signup/signup">立即注册</navigator>
+      </view>
+    </view>
+</view>

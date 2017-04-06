@@ -1,0 +1,5 @@
+/* pages/test/test.wxss */
+
+.other-button-hover{
+    opacity: 0.2
+}
